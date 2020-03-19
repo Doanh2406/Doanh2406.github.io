@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3009');
+const socket = io('https://doanh2406.github.io/');
 
 $('#div-chat').hide();
 
