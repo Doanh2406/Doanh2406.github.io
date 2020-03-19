@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Le Xuan Quoc Doanh</title>
+        <script src="jquery.js"></script>
+        <script src="peer.js"></script>
+        <script src="socket.io.dev.js"></script>
+    </head>
+    <body>
+        <div id="div-chat">
+                <p>ONLINE USER</p>
+                <ul id="ulUser">
+    
+                </ul>
+                <h3 id="my-peer">My peer ID:</h3>
+                <div class="videoStream" >
+                    <video id="localStream" width="300" controls style="float:left;"></video>
+                    <video id="remoteStream" width="300" controls style="margin-left: 20px;"></video>
+                    <br /><br />
+                </div>
+                <input type="text" placeholder="Remote ID" id="remoteId">
+                <button id="btnCall">
+                    Call
+                </button><br /><br />
+        </div>
+            
+        <div id="div-dang-ki">
+                <input type="text" placeholder="Enter your name" id="txtUsername">
+                <button id="btnSignup">
+                    Signup
+                </button>
+
+        </div>
+        
+
+    </body>
+    <script src="main.js"></script>
+</html>
