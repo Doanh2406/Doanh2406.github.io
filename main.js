@@ -2,6 +2,38 @@ const socket = io('https://ltm1903.herokuapp.com/');
 
 $('#div-chat').hide();
 
+// Node Get ICE STUN and TURN list
+let o = {
+    format: "urls"
+};
+
+let bodyString = JSON.stringify(o);
+let https = require("https");
+let options = {
+    host: "global.xirsys.net",
+    path: "/_turn/MyFirstApp",
+    method: "PUT",
+    headers: {
+        "Authorization": "Basic " + Buffer.from("QUYDI:c0796ab8-09da-11ea-b48f-0242ac110007").toString("base64"),
+        "Content-Type": "application/json",
+        "Content-Length": bodyString.length
+    }
+};
+let httpreq = https.request(options, function(httpres) {
+    let str = "";
+    httpres.on("data", function(data){ str += data; });
+    httpres.on("error", function(e){ console.log("error: ",e); });
+    httpres.on("end", function(){ 
+        console.log("ICE List: ", str);
+    });
+});
+httpreq.on("error", function(e){ console.log("request error: ",e); });
+httpreq.end();
+
+
+
+
+
 socket.on('DANH_SACH_ONLINE', arrUserInfo => {
     $('#div-chat').show();
     $('#div-dang-ki').hide();
